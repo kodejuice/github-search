@@ -10,7 +10,7 @@ function Home() {
   const { data, error, isLoading, search } = useSearch();
 
   // run on page load
-  // incase theres a search param q or p
+  // if theres a search param q or p
   useEffect(() => {
     search(query, getParam("p") || 1);
   }, []);
@@ -34,22 +34,16 @@ function Home() {
     <div className="main">
       <div className="container">
         <h2 className="search-title">🔍️ Search Github</h2>
-        <form
-          id="search_form"
-          action="/"
-          method="get"
-          onSubmit={onSubmit}
-          autoCapitalize="off"
-        >
+        <form id="search_form" action="/" method="get" onSubmit={onSubmit}>
           <div className="search-input">
             <input
-              autoComplete="false"
+              name="q"
               type="text"
               placeholder="Search user"
-              name="q"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
+            <input type="hidden" name="p" value={"1"} />
             <button className="btn">Search</button>
           </div>
         </form>
