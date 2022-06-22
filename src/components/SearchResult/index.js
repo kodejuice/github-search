@@ -33,7 +33,8 @@ function Loading({ n, t }) {
   );
 }
 
-const defaultPage = +getParam("p") - 1 || 0;
+const p = +getParam("p");
+const defaultPage = p ? p - 1 : 0;
 export function SearchResult({ data, query, isLoading, error, paginate }) {
   const resultPerPage = 10;
 
