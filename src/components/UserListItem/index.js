@@ -2,7 +2,7 @@ import Skeleton from "react-loading-skeleton";
 import { useUser } from "../../hooks";
 
 export function UserListItem({ data }) {
-  const { data: user, isLoading, error } = useUser(data.login);
+  const { data: user, isLoading } = useUser(data.login);
   const loaded = !isLoading && user?.login;
 
   const name = loaded && user.name;
