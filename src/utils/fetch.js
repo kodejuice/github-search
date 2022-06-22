@@ -17,7 +17,7 @@ async function apiFetch(path) {
   });
   if (!res.ok) {
     throw new Error(
-      res.responseStatusTexts ||
+      res.statusText ||
         `Error ${res.status}: ${responseStatusTexts[res.status]}`
     );
   }
